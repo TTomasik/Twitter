@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <a href="{% url 'add-tweet' %}">Dodaj tweeta</a>
+    <hr>
+
+    {% for tweet in tweets %}
+        <p>{{ tweet.content }}</p>
+        <p><em><img src="{{ tweet.user.userextend.avatar }}" width="5%" height="5%"><a href="{% url 'my-info' tweet.user.id %}">{{ tweet.user}}</a> @ {{ tweet.creation_date }}</em></p>
+        <hr>
+    {% endfor %}
+{% endblock %}
+
+{% block title %}Tweets:{% endblock %}
+
+

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Information about: <img src="{{ image }}" width="5%" height="5%">{{ person.username }}</h3>
+    <ul>
+        <li><b>Name: </b>{{ person.first_name }}</li>
+        <li><b>Surname: </b>{{ person.last_name }}</li>
+        <li><b>Email: </b>{{ person.email }}</li>
+    </ul>
+    <hr>
+
+{% for tweet in tweets %}
+        <ul>
+            <p><li><em>{{ tweet.date }} @ <b>Tweet: </b><a href="{% url 'content-all' %}">{{ tweet.content }}</a> </em></li></p>
+            <hr></ul>
+{% endfor %}
+{% endblock %}
+
+{% block title %}{{ tweet.user }}{% endblock %}
+
+
+        cont['person'] = person
+
+        INFO = []
+
+        a = {}
+        a['name'] = person.first_name
+        a['surname'] = person.last_name
+        a['email'] = person.email
+        a['tweets'] = Tweet.objects.filter(user__in=[person])
+        INFO.append(a)
+        cont['info'] = INFO
+        return render(request, 'my_info.html', cont)
