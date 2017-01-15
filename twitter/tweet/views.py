@@ -94,31 +94,7 @@ class ContentAll(View):
     def get(self, request):
         pass
 
-# class MovieDetails(View):
-#
-#     def get(self, request, movie_id):
-#
-#         cont = {}
-#         movie = Movie.objects.get(id=movie_id)
-#         cont['movie'] = movie
-#
-#         actorsOBJ = Movie.objects.get(id=movie_id).starring.all()
-#
-#         ACTORS = []
-#
-#         for c in actorsOBJ:
-#             # person = Movie.objects.get(id=movie_id).starring.all()
-#             a = {}
-#             a['first_name'] = c.first_name
-#             a['last_name'] = c.last_name
-#             a['role'] = Role.objects.filter(person__in=[c])[0].role
-#
-#             ACTORS.append(a)
-#
-#         cont['actors'] = ACTORS
-#
-#
-#         return render(request, 'movie_details.html', cont)
+
 
 
 
